@@ -17,13 +17,13 @@
     <p class="text-2xl font-bold mb-4">Customer List</p>
 
     <div class="mb-4">
-      <button class="px-3 py-1 bg-red-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip }}&limit={{ limit }}" hx-target="#table-body"
-        hx-swap="innerHTML">Reset
+      <button class="px-3 py-1 bg-red-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip }}&limit={{ limit }}"
+        hx-target="#table-body" hx-swap="innerHTML"> Reset
       </button>
 
       <button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip }}&limit={{ limit }}"
-        hx-target="#table-body" hx-swap="beforeend" hx-trigger="load, click"
-        id="bluebutton" hx-swap-oob="outerHTML:#bluebutton"> Load More
+        hx-target="#table-body" hx-swap="beforeend" hx-trigger="load, click" id="bluebutton"
+        hx-swap-oob="outerHTML:#bluebutton"> Load More
       </button>
     </div>
 

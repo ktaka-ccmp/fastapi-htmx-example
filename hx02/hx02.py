@@ -26,4 +26,3 @@ async def list(request: Request, skip: int = 0, limit: int = 1, hx_request: Opti
     if hx_request:
         return templates.TemplateResponse("list.tbody.html", context)
     return templates.TemplateResponse("list.html", context)
-
