@@ -14,3 +14,8 @@ pip install fastapi sqlalchemy uvicorn pydantic[email] jinja2
 # Run server
 uvicorn main:app  --host 0.0.0.0 --reload
 ```
+# Swagger UI
+
+Endpoints can be found in the Swagger UI.
+
+<img src=./image/fastapi-htmx-202401180453.gif width="600px">
