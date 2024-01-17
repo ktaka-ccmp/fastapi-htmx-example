@@ -14,8 +14,8 @@ def index(request: Request):
     context = {'request': request }
     return templates.TemplateResponse('index.html', context)
 
-@router.get("/movie", response_class=HTMLResponse)
-async def movielist(request: Request, hx_request: Optional[str] = Header(None)):
+@router.get("/list", response_class=HTMLResponse)
+async def list(request: Request, hx_request: Optional[str] = Header(None)):
     films = [
         {'name': 'Blade Runner', 'director': 'Ridley Scott'},
         {'name': 'Pulp Fiction', 'director': 'Quentin Tarantino'},
@@ -23,15 +23,15 @@ async def movielist(request: Request, hx_request: Optional[str] = Header(None)):
     ]
     context = {"request": request, 'films': films}
     if hx_request:
-        return templates.TemplateResponse("movie.tbody.html", context)
-    return templates.TemplateResponse("movie.html", context)
+        return templates.TemplateResponse("list.tbody.html", context)
+    return templates.TemplateResponse("list.html", context)
 
-@router.get("/movie/tbody", response_class=HTMLResponse)
-async def movie_table(request: Request):
+@router.get("/list/tbody", response_class=HTMLResponse)
+async def list_table(request: Request):
     films = [
         {'name': 'Blade Runner', 'director': 'Ridley Scott'},
         {'name': 'Pulp Fiction', 'director': 'Quentin Tarantino'},
         {'name': 'Mulholland Drive', 'director': 'David Lynch'},
     ]
     context = {"request": request, 'films': films}
-    return templates.TemplateResponse("movie.tbody.html", context)
+    return templates.TemplateResponse("list.tbody.html", context)

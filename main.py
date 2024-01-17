@@ -1,21 +1,21 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import api01.customer
+import api01.api01
 import hx01.hx01
 
 app = FastAPI()
 
 app.include_router(
-    api01.customer.router,
+    api01.api01.router,
     prefix="/api01",
-    tags=["CustomerWOAuthentication"],
+    tags=["api01"],
 )
 
 app.include_router(
     hx01.hx01.router,
     prefix="/hx01",
-    tags=["HTMX"],
+    tags=["hx01"],
 )
 
 origins = [

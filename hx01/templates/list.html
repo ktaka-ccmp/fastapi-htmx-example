@@ -19,12 +19,12 @@
     <p class="text-2xl font-bold mb-4">Movie List</p>
 
     <div class="mb-4">
-      <button class="px-3 py-1 bg-red-600 text-white ml-4" hx-get="/hx01/movie" hx-target="#tbody"
+      <button class="px-3 py-1 bg-red-600 text-white ml-4" hx-get="/hx01/list" hx-target="#tbody"
         hx-swap="innerHTML">Replace
       </button>
 
-      <button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx01/movie/tbody" hx-target="#tbody"
-        hx-swap="beforeend">Load More
+      <button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx01/list/tbody" hx-target="#tbody"
+        hx-swap="beforeend" hx-trigger="load, click delay:500ms">Load More
       </button>
     </div>
 
