@@ -7,7 +7,7 @@ from fastapi.responses import HTMLResponse
 
 router = APIRouter()
 
-templates = Jinja2Templates(directory='hx01/templates')
+templates = Jinja2Templates(directory='hx01')
 
 @router.get("/index", response_class=HTMLResponse)
 def index(request: Request):
