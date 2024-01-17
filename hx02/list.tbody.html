@@ -1,0 +1,12 @@
+{% for cs in customers %}
+<tr>
+  <td>{{ cs.id }}</td>
+  <td>{{ cs.name }}</td>
+  <td>{{ cs.email }}</td>
+</tr>
+{% endfor %}
+
+<button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip+limit }}&limit={{ limit }}"
+hx-target="#table-body" hx-swap="beforeend" hx-trigger="click"
+id="bluebutton" hx-swap-oob="outerHTML:#bluebutton"> Load More
+</button>

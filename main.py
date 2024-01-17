@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 import api01.api01
 import hx01.hx01
+import hx02.hx02
+
 
 app = FastAPI()
 
@@ -16,6 +18,12 @@ app.include_router(
     hx01.hx01.router,
     prefix="/hx01",
     tags=["hx01"],
+)
+
+app.include_router(
+    hx02.hx02.router,
+    prefix="/hx02",
+    tags=["hx02"],
 )
 
 origins = [
