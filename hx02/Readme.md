@@ -7,7 +7,7 @@ Upon a click on the load more button, an HTMX page reads more customers from the
 
 # Updating two elements
 
-Since the app placed the `Load more` button outside of the table, 
+Since the app placed the `Load more` button above the table, 
 I could not use the way this ["Click to Load"](https://htmx.org/examples/click-to-load/) example shows.
 For HTMX, updating multiple elements is doable.
 However, it seems more challenging than updating a single element.
