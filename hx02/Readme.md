@@ -15,17 +15,38 @@ I followed the hx-swap-oob(Out of Band Responses) example.
 
 In this example, not only the element "hx-target" points to but also the `bluebutton` itself has to be updated. 
 
+The `bluebutton` element in the initial HTML template:
 ```
-      <button class="..." hx-get="..." hx-target="..." hx-swap="..." hx-trigger="load, click"
-        id="bluebutton" hx-swap-oob="outerHTML:#bluebutton"> Load More
-      </button>
+      <span id="bluebutton">
+        <button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip_next }}&limit={{ limit }}"
+          hx-target="#table-body" hx-swap="beforeend" hx-trigger="click"> Load More
+        </button>
+      </span>
 ```
 
-htmx.config.useTemplateFragments needed to be set to true as:
+The fractional HTML template returned to the hx-get request:
+```
+{% for cs in customers %}
+<tr>
+  <td>{{ cs.id }}</td>
+  <td>{{ cs.name }}</td>
+  <td>{{ cs.email }}</td>
+</tr>
+{% endfor %}
 
+<span id="bluebutton" hx-swap-oob="innerHTML:#bluebutton">
+  <button class="px-3 py-1 bg-blue-600 text-white ml-4" hx-get="/hx02/list?skip={{ skip_next }}&limit={{ limit }}"
+    hx-target="#table-body" hx-swap="beforeend" hx-trigger="click"> Load More
+  </button>
+</span>
 ```
-  <meta name="htmx-config" content='{"useTemplateFragments":"true"}'>
-```
+> [!NOTE]
+> * The `<span>` element with `hx-swap-oob` attribute must be placed after the `<tr>` element, otherwise it will mess up the layout.
+> * For the `hx-swap-oob` to be effective, `htmx.config.useTemplateFragments` needed to be set to true as:
+>
+> ```html
+>  <meta name="htmx-config" content='{"useTemplateFragments":"true"}'>
+> ```
 
 Refs:
 1. [Updating Other Content](https://htmx.org/examples/update-other-content/)
