@@ -7,11 +7,11 @@ Upon a click on the load more button, an HTMX page reads more customers from the
 
 # Updating two elements
 
-Since the app placed the `Load more` button above the table, 
-I could not use the way this ["Click to Load"](https://htmx.org/examples/click-to-load/) example shows.
+Since the app placed the `Load More` button above the table, 
+I could not use the way the ["Click to Load" example of htmx.org site](https://htmx.org/examples/click-to-load/) shows.
 For HTMX, updating multiple elements is doable.
-However, it seems more challenging than updating a single element.
-I followed the hx-swap-oob(Out of Band Responses) example.
+However, it seems more challenging[^1,^2] than updating a single element.
+I followed the hx-swap-oob(Out of Band Responses) example[^1].
 
 In this example, not only the element "hx-target" points to but also the `bluebutton` itself has to be updated. 
 
@@ -49,5 +49,5 @@ The fractional HTML template returned to the hx-get request:
 > ```
 
 Refs:
-1. [Updating Other Content](https://htmx.org/examples/update-other-content/)
-1. [The multi-swap Extension](https://htmx.org/extensions/multi-swap/)
+[^1] [Updating Other Content](https://htmx.org/examples/update-other-content/)
+[^2] [The multi-swap Extension](https://htmx.org/extensions/multi-swap/)
