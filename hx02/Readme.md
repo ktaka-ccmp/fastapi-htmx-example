@@ -49,5 +49,5 @@ The fractional HTML template returned to the hx-get request:
 > ```
 
 Refs:
-[^1] [Updating Other Content](https://htmx.org/examples/update-other-content/)
-[^2] [The multi-swap Extension](https://htmx.org/extensions/multi-swap/)
+[^1]: [Updating Other Content](https://htmx.org/examples/update-other-content/)
+[^2]: [The multi-swap Extension](https://htmx.org/extensions/multi-swap/)
