@@ -18,13 +18,24 @@ async def json_customers(db: Session = Depends(get_db)):
 
 # HTMX Response functions
 @router.get("/list", response_class=HTMLResponse)
-async def list(request: Request, skip: int = 0, limit: int = 1, hx_request: Optional[str] = Header(None), db: Session = Depends(get_db)):
+async def list(request: Request, skip: int = 0, limit: int = 1, reset: bool = False, hx_request: Optional[str] = Header(None), db: Session = Depends(get_db)):
 
     customers = db.query(Customer).offset(skip).limit(limit).all()
-    context = {"skip_next": skip+limit, "limit": limit,"request": request, 'customers': customers}
 
+    if reset:
+        skip_next = 0
+    else:
+        skip_next = skip+limit
+    context = {"skip_next": skip_next, "limit": limit,"request": request, 'customers': customers}
+ 
+    print("(skip, limit, reset) = (", skip, limit, reset,")")
+    print("request.query_params:", dict(request.query_params))
     print("request.headers:", request.headers)
 
     if hx_request:
+        if reset:
+            return templates.TemplateResponse("list.reset.html", context)
         return templates.TemplateResponse("list.tbody.html", context)
+
     return templates.TemplateResponse("list.html", context)
+
