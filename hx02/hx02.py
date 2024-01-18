@@ -21,7 +21,9 @@ async def json_customers(db: Session = Depends(get_db)):
 async def list(request: Request, skip: int = 0, limit: int = 1, hx_request: Optional[str] = Header(None), db: Session = Depends(get_db)):
 
     customers = db.query(Customer).offset(skip).limit(limit).all()
-    context = {"skip": skip, "limit": limit,"request": request, 'customers': customers}
+    context = {"skip_next": skip+limit, "limit": limit,"request": request, 'customers': customers}
+
+    print("request.headers:", request.headers)
 
     if hx_request:
         return templates.TemplateResponse("list.tbody.html", context)
