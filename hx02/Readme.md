@@ -41,7 +41,7 @@ The fractional HTML template returned to the hx-get request:
 </span>
 ```
 > [!NOTE]
-> * The `<span>` element with `hx-swap-oob` attribute must be placed after the `<tr>` element, otherwise it will mess up the layout.
+> * The `<span>` element with `hx-swap-oob` attribute must be placed after the `<tr>` element, otherwise it will mess up the layout. But I don't know why.
 > * For the `hx-swap-oob` to be effective, `htmx.config.useTemplateFragments` needed to be set to true as:
 >
 > ```html
